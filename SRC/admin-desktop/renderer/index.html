@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline';">
+<title>NRO Admin Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ==================== TITLEBAR ==================== -->
+<div class="titlebar" id="titlebar">
+  <div class="titlebar-drag">
+    <span class="titlebar-logo">🐉</span>
+    <span class="titlebar-title" id="titlebarTitle">NRO Admin Panel</span>
+    <span class="titlebar-sub" id="titlebarSub">Chưa kết nối</span>
+  </div>
+  <div class="titlebar-controls">
+    <button id="btnMinimize" class="tb-btn">─</button>
+    <button id="btnMaximize" class="tb-btn">□</button>
+    <button id="btnClose" class="tb-btn close">✕</button>
+  </div>
+</div>
+
+<!-- ==================== CONNECT SCREEN ==================== -->
+<div class="connect-screen" id="connectScreen">
+  <div class="connect-bg">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="connect-card">
+    <div class="connect-logo">
+      <div class="logo-icon-big">🐉</div>
+      <h1>NRO Admin Panel</h1>
+      <p>Ngọc Rồng Online — Database Manager</p>
+    </div>
+
+    <div class="connect-form" id="connectForm">
+      <h3>🔌 Kết nối Database</h3>
+      <div class="form-grid-2">
+        <div class="field-group">
+          <label>Host</label>
+          <input type="text" id="cfgHost" value="localhost" placeholder="localhost">
+        </div>
+        <div class="field-group">
+          <label>Port</label>
+          <input type="number" id="cfgPort" value="3306" placeholder="3306">
+        </div>
+        <div class="field-group">
+          <label>Database</label>
+          <input type="text" id="cfgDatabase" value="team2026" placeholder="team2026">
+        </div>
+        <div class="field-group">
+          <label>Username</label>
+          <input type="text" id="cfgUser" value="root" placeholder="root">
+        </div>
+        <div class="field-group" style="grid-column:1/-1">
+          <label>Password</label>
+          <input type="password" id="cfgPassword" placeholder="(để trống nếu không có)">
+        </div>
+      </div>
+
+      <div id="connectError" class="connect-error" style="display:none"></div>
+
+      <button class="btn btn-primary btn-full btn-connect" id="btnConnect">
+        <span id="connectBtnText">🔌 Kết nối</span>
+      </button>
+
+      <p class="connect-hint">Cấu hình sẽ được lưu tự động cho lần sau</p>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== MAIN APP ==================== -->
+<div class="app-layout" id="appLayout" style="display:none">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <span class="logo-dragon">🐉</span>
+        <div class="logo-text">
+          <span class="logo-title">NRO Admin</span>
+          <span class="logo-sub" id="sbVersion">v1.0.0</span>
+        </div>
+      </div>
+      <button class="sidebar-toggle" id="sidebarToggle" title="Thu gọn">‹</button>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Tổng quan</div>
+      <a class="nav-item active" data-page="dashboard">
+        <span class="nav-icon">📊</span><span class="nav-text">Dashboard</span>
+      </a>
+
+      <div class="nav-section-label">Quản lý</div>
+      <a class="nav-item" data-page="accounts">
+        <span class="nav-icon">👥</span><span class="nav-text">Tài khoản</span>
+      </a>
+      <a class="nav-item" data-page="players">
+        <span class="nav-icon">🎮</span><span class="nav-text">Nhân vật</span>
+      </a>
+      <a class="nav-item" data-page="player-runtime">
+        <span class="nav-icon">🛰️</span><span class="nav-text">Player Runtime</span>
+      </a>
+      <a class="nav-item" data-page="clans">
+        <span class="nav-icon">🏰</span><span class="nav-text">Bang hội</span>
+      </a>
+      <a class="nav-item" data-page="giftcodes">
+        <span class="nav-icon">🎁</span><span class="nav-text">Giftcode</span>
+      </a>
+      <a class="nav-item" data-page="shop_ky_gui">
+        <span class="nav-icon">🛒</span><span class="nav-text">Shop Ký Gửi</span>
+      </a>
+      <a class="nav-item" data-page="transactions">
+        <span class="nav-icon">💳</span><span class="nav-text">Giao dịch</span>
+      </a>
+      <a class="nav-item" data-page="radar">
+        <span class="nav-icon">📡</span><span class="nav-text">Quản lý Radar</span>
+      </a>
+      <a class="nav-item" data-page="bosses">
+        <span class="nav-icon">👹</span><span class="nav-text">Boss Runtime</span>
+      </a>
+      <a class="nav-item" data-page="events">
+        <span class="nav-icon">🎉</span><span class="nav-text">Quản lý sự kiện</span>
+      </a>
+      <a class="nav-item" data-page="shop">
+        <span class="nav-icon">🏪</span><span class="nav-text">Quản lý Shop</span>
+      </a>
+      <a class="nav-item" data-page="wardrobe">
+        <span class="nav-icon">🧥</span><span class="nav-text">Cải trang / Avatar</span>
+      </a>
+      <a class="nav-item" data-page="parts">
+        <span class="nav-icon">🧩</span><span class="nav-text">Quản lý Part</span>
+      </a>
+      <a class="nav-item" data-page="maps">
+        <span class="nav-icon">🗺️</span><span class="nav-text">Quản lý Map</span>
+      </a>
+
+      <div class="nav-section-label">Nội dung</div>
+      <a class="nav-item" data-page="website">
+        <span class="nav-icon">🌐</span><span class="nav-text">Quản lý Website</span>
+      </a>
+      <a class="nav-item" data-page="website-forum">
+        <span class="nav-icon">💬</span><span class="nav-text">Quản lý Diễn đàn</span>
+      </a>
+
+      <div class="nav-section-label">Cơ sở dữ liệu</div>
+      <a class="nav-item" data-page="tables">
+        <span class="nav-icon">🗄️</span><span class="nav-text">Tất cả bảng</span>
+      </a>
+      <a class="nav-item" data-page="sql">
+        <span class="nav-icon">⌨️</span><span class="nav-text">SQL Console</span>
+      </a>
+
+      <div class="nav-section-label">Hệ thống</div>
+      <a class="nav-item" data-page="settings">
+        <span class="nav-icon">⚙️</span><span class="nav-text">Cài đặt</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="db-info">
+        <span class="db-dot" id="dbDot"></span>
+        <span class="db-name" id="dbName">Đang kết nối...</span>
+      </div>
+      <button class="disconnect-btn" id="btnDisconnect" title="Ngắt kết nối">⏻</button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content" id="mainContent">
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="breadcrumb">
+          <span>🏠</span>
+          <span class="bc-sep">/</span>
+          <span id="bcPage">Dashboard</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="server-status">
+          <span class="status-dot" id="statusDot"></span>
+          <span class="status-text" id="statusText">Connecting</span>
+        </div>
+        <div class="topbar-time" id="topbarTime"></div>
+        <button class="btn btn-sm btn-outline" id="btnRefresh">↺ Làm mới</button>
+      </div>
+    </header>
+
+    <div class="page-content" id="pageContent">
+      <div class="loading-spinner"><div class="spinner"></div><p>Đang tải...</p></div>
+    </div>
+  </main>
+</div>
+
+<!-- ==================== MODAL ==================== -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <h3 id="modalTitle">Modal</h3>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<!-- Toast Notifications -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

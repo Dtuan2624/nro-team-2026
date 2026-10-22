@@ -1,0 +1,23 @@
+{
+  "siteName": "Ngọc Rồng Hz",
+  "tagline": "Cày chay , cc gì cũng cày được",
+  "heroImage": "uploads/home/8a56abb4-4553-4afa-b4c4-40bb9f461b34.jpg",
+  "registrationEnabled": false,
+  "announcement": "Chào mừng bạn đến với máy chủ. Theo dõi diễn đàn để cập nhật tin tức và sự kiện mới nhất.",
+  "mechanics": "Chọn hành tinh và tạo nhân vật phù hợp với lối chơi của bạn.\n\nHoàn thành nhiệm vụ để làm quen với bản đồ, NPC và các tính năng cơ bản. Sức mạnh tăng qua luyện tập, trang bị và kỹ năng.\n\nMột số hoạt động có thể thay đổi theo sự kiện; hãy xem thông báo trên diễn đàn.",
+  "itemGuide": "Nhiệm vụ: hoàn thành nhiệm vụ chính tuyến và nhiệm vụ hằng ngày để nhận vật phẩm, vàng hoặc kinh nghiệm.\n\nSăn quái và Boss: tìm hiểu khu vực xuất hiện, chuẩn bị tổ đội và quay lại vào thời điểm phù hợp.\n\nSự kiện: theo dõi thông báo để biết vật phẩm sự kiện, điều kiện tham gia và thời hạn.\n\nTỷ lệ rơi và phần thưởng có thể được điều chỉnh theo từng giai đoạn.",
+  "downloads": [
+    {
+      "label": "Tải bản Windows",
+      "url": ""
+    },
+    {
+      "label": "Tải bản Android",
+      "url": ""
+    },
+    {
+      "label": "Tải bản iOS",
+      "url": ""
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+/SRC/admin-bridge.token
+LocalMod/
+node_modules/
+**/node_modules/
+/SRC/build/
+/SRC/out/
+*.class
