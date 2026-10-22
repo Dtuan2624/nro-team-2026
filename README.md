@@ -1,5 +1,8 @@
 # Ngọc Rồng Online - Teamobi 2026
 
+> [!NOTE]
+> **Lưu ý:** Source code chỉ mang tính chất học tập, nghiên cứu và phát triển kỹ năng lập trình, hoàn toàn phi thương mại.
+
 Dự án máy chủ game Ngọc Rồng Online (NRO) phiên bản Teamobi 2026 bao gồm Game Server (Java 17), Desktop Admin Panel (Electron), Website cộng đồng / diễn đàn (PHP), và cơ sở dữ liệu mẫu.
 
 ---
